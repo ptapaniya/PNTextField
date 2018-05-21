@@ -1,0 +1,6 @@
+framework module PNTextField {
+  umbrella header "PNTextField-umbrella.h"
+
+  export *
+  module * { export * }
+}

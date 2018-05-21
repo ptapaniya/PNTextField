@@ -31,33 +31,33 @@ public class PNTextField: UITextField {
         case sqare
     }
     
-    fileprivate var lblFloatPlaceholder:UILabel             = UILabel()
-    fileprivate var lblError:UILabel                        = UILabel()
+    fileprivate var lblFloatPlaceholder:UILabel = UILabel()
+    fileprivate var lblError:UILabel = UILabel()
     
-    fileprivate let paddingX:CGFloat                        = 5.0
+    fileprivate let paddingX:CGFloat = 5.0
     
-    fileprivate let paddingHeight:CGFloat                   = 10.0
+    fileprivate let paddingHeight:CGFloat = 10.0
     
-    public var pnLayer:CALayer                              = CALayer()
-    public var floatPlaceholderColor:UIColor                = UIColor.black
-    public var floatPlaceholderActiveColor:UIColor          = UIColor.black
-    public var floatingLabelShowAnimationDuration           = 0.3
+    public var pnLayer:CALayer = CALayer()
+    public var floatPlaceholderColor:UIColor = UIColor.black
+    public var floatPlaceholderActiveColor:UIColor = UIColor.black
+    public var floatingLabelShowAnimationDuration = 0.3
     public var floatingDisplayStatus:FloatingDisplayStatus  = .defaults
     
     public var pnborderStyle:PNBorderStyle = .rounded{
         didSet{
             switch pnborderStyle {
             case .none:
-                pnLayer.cornerRadius        = 0.0
-                pnLayer.borderWidth         = 0.0
+                pnLayer.cornerRadius = 0.0
+                pnLayer.borderWidth = 0.0
             case .rounded:
-                pnLayer.cornerRadius        = 4.5
-                pnLayer.borderWidth         = 0.5
-                pnLayer.borderColor         = borderColor.cgColor
+                pnLayer.cornerRadius = 4.5
+                pnLayer.borderWidth = 0.5
+                pnLayer.borderColor = borderColor.cgColor
             case .sqare:
-                pnLayer.cornerRadius        = 0.0
-                pnLayer.borderWidth         = 0.5
-                pnLayer.borderColor         = borderColor.cgColor
+                pnLayer.cornerRadius = 0.0
+                pnLayer.borderWidth = 0.5
+                pnLayer.borderColor = borderColor.cgColor
             }
         }
     }
@@ -67,7 +67,7 @@ public class PNTextField: UITextField {
     }
     
     public var animateFloatPlaceholder:Bool = true
-    public var hideErrorWhenEditing:Bool   = true
+    public var hideErrorWhenEditing:Bool = true
     
     public var errorFont = UIFont.systemFont(ofSize: 10.0){
         didSet{ invalidateIntrinsicContentSize() }
@@ -208,23 +208,23 @@ public class PNTextField: UITextField {
     
     fileprivate func commonInit() {
         
-        pnborderStyle               = .rounded
-        pnLayer.backgroundColor     = UIColor.white.cgColor
+        pnborderStyle = .rounded
+        pnLayer.backgroundColor = UIColor.white.cgColor
         
-        floatPlaceholderColor       = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+        floatPlaceholderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
         floatPlaceholderActiveColor = tintColor
-        lblFloatPlaceholder.frame   = CGRect.zero
-        lblFloatPlaceholder.alpha   = 0.0
-        lblFloatPlaceholder.font    = floatPlaceholderFont
-        lblFloatPlaceholder.text    = placeholderFinal
+        lblFloatPlaceholder.frame = CGRect.zero
+        lblFloatPlaceholder.alpha = 0.0
+        lblFloatPlaceholder.font = floatPlaceholderFont
+        lblFloatPlaceholder.text = placeholderFinal
         
         addSubview(lblFloatPlaceholder)
         
-        lblError.frame              = CGRect.zero
-        lblError.font               = errorFont
-        lblError.textColor          = UIColor.red
-        lblError.numberOfLines      = 0
-        lblError.isHidden           = true
+        lblError.frame = CGRect.zero
+        lblError.font = errorFont
+        lblError.textColor = UIColor.red
+        lblError.numberOfLines = 0
+        lblError.isHidden = true
         
         addTarget(self, action: #selector(textFieldTextChanged), for: .editingChanged)
         

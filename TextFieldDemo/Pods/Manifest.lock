@@ -1,0 +1,16 @@
+PODS:
+  - PNTextField (1.0.0)
+
+DEPENDENCIES:
+  - PNTextField (from `../PNTextField/`)
+
+EXTERNAL SOURCES:
+  PNTextField:
+    :path: ../PNTextField/
+
+SPEC CHECKSUMS:
+  PNTextField: 2ae7e44f7614d13f1e525caf430fd731c309498c
+
+PODFILE CHECKSUM: 2d486687c568b8351963bc9fb9396aca5188e8f1
+
+COCOAPODS: 1.4.0
