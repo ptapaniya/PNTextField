@@ -15,13 +15,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtEmail: PNTextField!
     @IBOutlet weak var txtPassword: PNTextField!
     @IBOutlet weak var txtConfirmPassword: PNTextField!
-    
-    let firstNameMessage = NSLocalizedString("Full name is required.", comment: "")
-    let emailMessage = NSLocalizedString("Email is required.", comment: "")
-    let passwordMessage  = NSLocalizedString("Password is required.", comment: "")
-    let confirmPasswordMessage = NSLocalizedString("Confirm password is required.", comment: "")
-    let mismatchPasswordMessage = NSLocalizedString("Password and Confirm password are not matching.", comment: "")
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +37,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-    }
- 
+   
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         switch textField {
@@ -87,38 +75,35 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
     }
     
-}
-
-extension ViewController{
-    
     func validateData() -> Bool {
         
         guard !txtFullName.text!.isEmptyStr else {
-            txtFullName.showError(message: firstNameMessage)
+            txtFullName.showError(message: "Full name is required.")
             return false
         }
         
         guard !txtEmail.text!.isEmptyStr else {
-            txtEmail.showError(message: emailMessage)
+            txtEmail.showError(message: "Email is required.")
             return false
         }
         
         guard !txtPassword.text!.isEmptyStr else {
-            txtPassword.showError(message: passwordMessage)
+            txtPassword.showError(message: "Password is required.")
             return false
         }
         
         guard !txtConfirmPassword.text!.isEmptyStr else {
-            txtConfirmPassword.showError(message: confirmPasswordMessage)
+            txtConfirmPassword.showError(message: "Confirm password is required.")
             return false
         }
         
         guard txtPassword.text == txtConfirmPassword.text else {
-            txtConfirmPassword.showError(message: mismatchPasswordMessage)
+            txtConfirmPassword.showError(message: "Password and Confirm password are not matching.")
             return false
         }
         
         return true
     }
+    
 }
 
